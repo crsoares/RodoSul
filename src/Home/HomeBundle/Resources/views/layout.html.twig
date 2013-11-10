@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Home</title>
+	<meta charset="utf-8" />
+	<link rel="icon" href="{{asset('bundles/homehome/images/favicon.ico')}}" />
+	<link rel="shortcut icon" href="{{asset('bundles/homehome/images/favicon.ico')}}" />
+	<link rel="stylesheet" href="{{asset('bundles/homehome/css/style.css')}}" />
+	<link rel="stylesheet" href="{{asset('bundles/homehome/css/slider.css')}}" />
+	<script src="{{asset('bundles/homehome/js/jquery.js')}}"></script>
+	<script src="{{asset('bundles/homehome/js/jquery.easing.1.3.js')}}"></script>
+	<script src="{{asset('bundles/homehome/js/jquery-migrate-1.1.1.js')}}"></script>
+	<script src="{{asset('bundles/homehome/js/superfish.js')}}"></script>
+	<script src="{{asset('bundles/homehome/js/jquery.equalheights.js')}}"></script>
+	<script src="{{asset('bundles/homehome/js/tms-0.4.1.js')}}"></script>
+	<script src="{{asset('bundles/homehome/js/jquery.carouFredSel-6.1.0-packed.js')}}"></script>
+	<script src="{{asset('bundles/homehome/js/jquery.ui.totop.js')}}"></script>
+	<script>
+		$(window).load(function(){
+					$('.slider')._TMS({
+							show:0,
+							pauseOnHover:false,
+							prevBu:'.prev',
+							nextBu:'.next',
+							playBu:false,
+							duration:800,
+							preset:'fade',
+							easing:'easeOutQuad',
+							pagination:true,
+							pagNums:false,
+							slideshow:8000,
+							numStatus:false,
+							banners:'fade',
+							waitBannerAnimation:false,
+							progressBar:false
+						});
+		});
+		
+		$(window).load(function(){
+				$('.carousell').carouFredSet({
+						auto: false,
+						prev: '.prev1',
+						next: '.next1',
+						width: 960,
+						items: {
+							visible: {min: 4, max: 4}
+						},
+						responsive: false,
+						scroll: 1,
+						mousewheel: false,
+						swipe: {onMouse: false, onTouch: false};
+				});
+		});
+	</script>
+</head>
+
+<div>
+	{% block header %}
+	{% endblock %}
+</div>
+
+<div class="symfony-content">
+	{% block content %}
+	{% endblock %}
+</div>
+</html>

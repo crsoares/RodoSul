@@ -1,0 +1,13 @@
+{% extends "HomeHomeBundle::layout.html.twig" %}
+
+{% block title "Ola " ~ name %}
+
+{% block header %}
+	{{render(controller("HomeHomeBundle:Home:fancy", {'name': name, 'color': 'green'}))}}
+{% endblock %}
+
+{% block content %}
+	<h1>{{include("HomeHomeBundle:Home:embedded.html.twig")}}</h1>
+	<a href="{{path('_home_contact', {'name': 'Crysthiano de Aguiar Soares'})}}">link utiliando a função path do Symfony</a>
+	<a href="{{url('_home_contact', {'name': 'Heloisa eu te amo muitoooo'})}}">url absouto com a função url do Symfony</a>
+{% endblock %}
