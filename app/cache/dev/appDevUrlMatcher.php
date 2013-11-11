@@ -209,7 +209,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         if (0 === strpos($pathinfo, '/home')) {
             // _home
             if (0 === strpos($pathinfo, '/home/home') && preg_match('#^/home/home/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => '_home')), array (  '_controller' => 'Home\\HomeBundle\\Controller\\HomeController::indexAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_home')), array (  '_format' => 'xml',  '_controller' => 'Home\\HomeBundle\\Controller\\HomeController::indexAction',));
             }
 
             // _home_contact
