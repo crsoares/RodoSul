@@ -11,12 +11,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class HomeController extends Controller
 {
 	/**
-	 * @Route("/home/{name}", name="_home")
+	 * @Route("/home/{name}", defaults={"_format"="xml"}, name="_home")
 	 * @Template()
 	 */
 	public function indexAction($name){
 		//echo 'akiii';die;
 		return array("name" => $name);
+		//return $this->redirect($this->generateUrl("_home_contact", array('name' => 'Lucas')));
+		//return $this->forward('HomeHomeBundle:Home:fancy', array('name' => 'Crysthiano', 'color' => 'green'));
 	}
 	
 	public function fancyAction($name, $color){
