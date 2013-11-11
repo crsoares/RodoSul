@@ -15,7 +15,6 @@ class HomeController extends Controller
 	 * @Template()
 	 */
 	public function indexAction($name){
-		//echo 'akiii';die;
 		return array("name" => $name);
 		//return $this->redirect($this->generateUrl("_home_contact", array('name' => 'Lucas')));
 		//return $this->forward('HomeHomeBundle:Home:fancy', array('name' => 'Crysthiano', 'color' => 'green'));
