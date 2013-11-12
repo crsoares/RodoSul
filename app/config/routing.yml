@@ -1,0 +1,4 @@
+home_store:
+    resource: "@HomeStoreBundle/Resources/config/routing.yml"
+    prefix:   /
+

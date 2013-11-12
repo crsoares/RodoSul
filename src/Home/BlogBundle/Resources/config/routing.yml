@@ -1,0 +1,7 @@
+blog_list: 
+	path: /blog
+	defauts: {_controller: HomeBlogBundle:Blog:list}
+
+blog_show: 
+	path: /blog/show/{id}
+	defaults: {_controller: HomeBlogBundle:Blog:show}
