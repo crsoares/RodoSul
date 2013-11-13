@@ -30,6 +30,14 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'home_store_homepage')), array (  '_controller' => 'Home\\StoreBundle\\Controller\\DefaultController::indexAction',));
         }
 
+<<<<<<< Upstream, based on origin/master
+=======
+        // _teste
+        if ($pathinfo === '/cadastro') {
+            return array (  '_controller' => 'HomeStoraBundle:Default:create',  '_route' => '_teste',);
+        }
+
+>>>>>>> e61c1ce estudo symfony
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }
