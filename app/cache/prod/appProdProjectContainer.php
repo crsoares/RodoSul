@@ -256,6 +256,7 @@ class appProdProjectContainer extends Container
         $c = new \Doctrine\Common\Cache\ArrayCache();
         $c->setNamespace('sf2orm_default_5bff09ded3392231355c575467bfb661');
 <<<<<<< HEAD
+<<<<<<< HEAD
         $d = new \Doctrine\ORM\Mapping\Driver\DriverChain();
         $d->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => '/home/crysthiano/git/RodoSul/src/Home/StoreBundle/Entity')), 'Home\\StoreBundle\\Entity');
         $e = new \Doctrine\ORM\Configuration();
@@ -271,6 +272,21 @@ class appProdProjectContainer extends Container
         $e->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
         $e->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
         $this->services['doctrine.orm.default_entity_manager'] = $instance = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $e);
+=======
+        $d = new \Doctrine\ORM\Configuration();
+        $d->setEntityNamespaces(array());
+        $d->setMetadataCacheImpl($a);
+        $d->setQueryCacheImpl($b);
+        $d->setResultCacheImpl($c);
+        $d->setMetadataDriverImpl(new \Doctrine\ORM\Mapping\Driver\DriverChain());
+        $d->setProxyDir('/home/crysthiano/git/RodoSul/app/cache/prod/doctrine/orm/Proxies');
+        $d->setProxyNamespace('Proxies');
+        $d->setAutoGenerateProxyClasses(false);
+        $d->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $d->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
+        $d->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
+        $this->services['doctrine.orm.default_entity_manager'] = $instance = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $d);
+>>>>>>> branch 'master' of https://github.com/crysthianophp/RodoSul.git
 =======
         $d = new \Doctrine\ORM\Configuration();
         $d->setEntityNamespaces(array());

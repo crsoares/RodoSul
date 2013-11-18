@@ -5,6 +5,7 @@ d36668,127.0.0.1,GET,http://localhost/RodoSul/web/app_dev.php/,1384194744,
 f0af2a,127.0.0.1,GET,http://localhost/RodoSul/web/app_dev.php/demo/hello/crysthiano,1384251524,
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 31ab56,127.0.0.1,GET,http://localhost/RodoSul/web/app_dev.php/home/hello/crysthiano,1384300637,
 c41aa3,127.0.0.1,GET,http://localhost/RodoSul/web/app_dev.php/home/hello/crysthiano,1384300637,
 6f6c08,127.0.0.1,GET,http://localhost/RodoSul/web/app_dev.php/store/hello/crysthiano,1384300821,
@@ -113,4 +114,10 @@ add89c,127.0.0.1,GET,http://localhost/RodoSul/web/app_dev.php/blog/3,1384309944,
 =======
 f0af2a,127.0.0.1,GET,http://localhost/RodoSul/web/app_dev.php/demo/hello/crysthiano,1384251524,
 >>>>>>> branch 'master' of https://github.com/crysthianophp/RodoSul.git
+<<<<<<< Upstream, based on origin/master
 >>>>>>> 3145dd1 teste
+=======
+=======
+f0af2a,127.0.0.1,GET,http://localhost/RodoSul/web/app_dev.php/demo/hello/crysthiano,1384251524,
+>>>>>>> branch 'master' of https://github.com/crysthianophp/RodoSul.git
+>>>>>>> b2641f5 resolve conflito

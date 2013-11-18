@@ -141,6 +141,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 <<<<<<< Upstream, based on origin/master
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
         // teste
         if ($pathinfo === '/cadastro') {
             return array (  '_controller' => 'Home\\StoreBundle\\Controller\\DefaultController::createAction',  '_route' => 'teste',);
@@ -166,7 +167,12 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
 =======
 >>>>>>> branch 'master' of https://github.com/crysthianophp/RodoSul.git
+<<<<<<< Upstream, based on origin/master
 >>>>>>> 3145dd1 teste
+=======
+=======
+>>>>>>> branch 'master' of https://github.com/crysthianophp/RodoSul.git
+>>>>>>> b2641f5 resolve conflito
         // _welcome
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

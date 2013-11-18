@@ -1,6 +1,7 @@
 <<<<<<< Upstream, based on origin/master
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2013-11-11 19:24:11] event.DEBUG: Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ProfilerListener::onKernelRequest". [] []
 [2013-11-11 19:24:11] event.DEBUG: Notified event "kernel.request" to listener "Symfony\Bundle\FrameworkBundle\EventListener\SessionListener::onKernelRequest". [] []
 [2013-11-11 19:24:12] event.DEBUG: Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\FragmentListener::onKernelRequest". [] []
@@ -4350,4 +4351,9 @@
 [2013-11-13 03:36:40] event.DEBUG: Notified event "kernel.controller" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener::onKernelController". [] []
 =======
 >>>>>>> branch 'master' of https://github.com/crysthianophp/RodoSul.git
+<<<<<<< Upstream, based on origin/master
 >>>>>>> 3145dd1 teste
+=======
+=======
+>>>>>>> branch 'master' of https://github.com/crysthianophp/RodoSul.git
+>>>>>>> b2641f5 resolve conflito

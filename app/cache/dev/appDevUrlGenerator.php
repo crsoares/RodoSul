@@ -34,13 +34,19 @@ class appDevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
 <<<<<<< Upstream, based on origin/master
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
         'teste' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Home\\StoreBundle\\Controller\\DefaultController::createAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/cadastro',    ),  ),  4 =>   array (  ),),
         'teste_show' => array (  0 =>   array (    0 => 'id',  ),  1 =>   array (    '_controller' => 'Home\\StoreBundle\\Controller\\DefaultController::showAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'variable',      1 => '/',      2 => '[^/]++',      3 => 'id',    ),    1 =>     array (      0 => 'text',      1 => '/listar',    ),  ),  4 =>   array (  ),),
         'blog_show' => array (  0 =>   array (    0 => 'slug',  ),  1 =>   array (    '_controller' => 'Acme\\BlogBundle\\Controller\\BlogController::showAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'variable',      1 => '/',      2 => '[^/]++',      3 => 'slug',    ),    1 =>     array (      0 => 'text',      1 => '/blog',    ),  ),  4 =>   array (  ),),
         'blog' => array (  0 =>   array (    0 => 'page',  ),  1 =>   array (    '_controller' => 'Acme\\BlogBundle\\Controller\\BlogController::indexAction',    'page' => 1,  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'variable',      1 => '/',      2 => '[^/]++',      3 => 'page',    ),    1 =>     array (      0 => 'text',      1 => '/blog',    ),  ),  4 =>   array (  ),),
 =======
 >>>>>>> branch 'master' of https://github.com/crysthianophp/RodoSul.git
+<<<<<<< Upstream, based on origin/master
 >>>>>>> 3145dd1 teste
+=======
+=======
+>>>>>>> branch 'master' of https://github.com/crysthianophp/RodoSul.git
+>>>>>>> b2641f5 resolve conflito
         '_welcome' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Acme\\DemoBundle\\Controller\\WelcomeController::indexAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/',    ),  ),  4 =>   array (  ),),
         '_demo_login' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Acme\\DemoBundle\\Controller\\SecuredController::loginAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/demo/secured/login',    ),  ),  4 =>   array (  ),),
         '_security_check' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Acme\\DemoBundle\\Controller\\SecuredController::securityCheckAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/demo/secured/login_check',    ),  ),  4 =>   array (  ),),

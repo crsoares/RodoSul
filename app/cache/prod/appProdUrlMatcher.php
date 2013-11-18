@@ -35,7 +35,11 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 =======
 =======
 <<<<<<< HEAD
+<<<<<<< Upstream, based on origin/master
 >>>>>>> 3145dd1 teste
+=======
+<<<<<<< HEAD
+>>>>>>> b2641f5 resolve conflito
         // _teste
         if ($pathinfo === '/cadastro') {
             return array (  '_controller' => 'HomeStoraBundle:Default:create',  '_route' => '_teste',);
@@ -46,7 +50,12 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 =======
 =======
 >>>>>>> branch 'master' of https://github.com/crysthianophp/RodoSul.git
+<<<<<<< Upstream, based on origin/master
 >>>>>>> 3145dd1 teste
+=======
+=======
+>>>>>>> branch 'master' of https://github.com/crysthianophp/RodoSul.git
+>>>>>>> b2641f5 resolve conflito
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }
