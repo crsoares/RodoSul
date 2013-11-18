@@ -31,13 +31,22 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
         }
 
 <<<<<<< Upstream, based on origin/master
+<<<<<<< Upstream, based on origin/master
 =======
+=======
+<<<<<<< HEAD
+>>>>>>> 3145dd1 teste
         // _teste
         if ($pathinfo === '/cadastro') {
             return array (  '_controller' => 'HomeStoraBundle:Default:create',  '_route' => '_teste',);
         }
 
+<<<<<<< Upstream, based on origin/master
 >>>>>>> e61c1ce estudo symfony
+=======
+=======
+>>>>>>> branch 'master' of https://github.com/crysthianophp/RodoSul.git
+>>>>>>> 3145dd1 teste
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }
