@@ -2,3 +2,7 @@ home_store:
     resource: "@HomeStoreBundle/Resources/config/routing.yml"
     prefix:   /
 
+blog_show:
+   path: /blog/{slug}
+   defaults: {_controller: HomeBlogBundle:Blog:estudo}
+

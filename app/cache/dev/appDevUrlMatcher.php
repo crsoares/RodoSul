@@ -138,41 +138,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'home_store_homepage')), array (  '_controller' => 'Home\\StoreBundle\\Controller\\DefaultController::indexAction',));
         }
 
-<<<<<<< Upstream, based on origin/master
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        // teste
-        if ($pathinfo === '/cadastro') {
-            return array (  '_controller' => 'Home\\StoreBundle\\Controller\\DefaultController::createAction',  '_route' => 'teste',);
+        // blog_show
+        if (0 === strpos($pathinfo, '/blog') && preg_match('#^/blog/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_show')), array (  '_controller' => 'Home\\BlogBundle\\Controller\\BlogController::estudoAction',));
         }
 
-        // teste_show
-        if (0 === strpos($pathinfo, '/listar') && preg_match('#^/listar/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'teste_show')), array (  '_controller' => 'Home\\StoreBundle\\Controller\\DefaultController::showAction',));
-        }
-
-        if (0 === strpos($pathinfo, '/blog')) {
-            // blog
-            if (preg_match('#^/blog(?:/(?P<page>[^/]++))?$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog')), array (  '_controller' => 'Acme\\BlogBundle\\Controller\\BlogController::indexAction',  'page' => 1,));
-            }
-
-            // blog_show
-            if (preg_match('#^/blog/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_show')), array (  '_controller' => 'Acme\\BlogBundle\\Controller\\BlogController::showAction',));
-            }
-
-        }
-
-=======
->>>>>>> branch 'master' of https://github.com/crysthianophp/RodoSul.git
-<<<<<<< Upstream, based on origin/master
->>>>>>> 3145dd1 teste
-=======
-=======
->>>>>>> branch 'master' of https://github.com/crysthianophp/RodoSul.git
->>>>>>> b2641f5 resolve conflito
         // _welcome
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

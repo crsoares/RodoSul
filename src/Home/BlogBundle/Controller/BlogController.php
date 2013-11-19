@@ -1,6 +1,6 @@
 <?php 
 
-use Home\BlogBundle\Controller;
+namespace Home\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -32,6 +32,10 @@ class BlogController extends Controller
 			'HomeBlogBundle:Blog:show.html.php',
 			array('post' => $post)
 		);
+	}
+	
+	public function estudoAction($slug){
+		echo $slug . ' akiiii';die;
 	}
 	
 	

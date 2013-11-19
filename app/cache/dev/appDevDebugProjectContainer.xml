@@ -19,6 +19,7 @@
       <parameter key="HomeStoreBundle">Home\StoreBundle\HomeStoreBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="HomeHomeBundle">Home\HomeBundle\HomeHomeBundle</parameter>
+      <parameter key="HomeBlogBundle">Home\BlogBundle\HomeBlogBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -2210,7 +2211,9 @@
       <argument type="service">
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument key="HomeStoreBundle">Home\StoreBundle\Entity</argument>
+            </argument>
           </call>
           <call method="setMetadataCacheImpl">
             <argument type="service">
@@ -2241,7 +2244,19 @@
           </call>
           <call method="setMetadataDriverImpl">
             <argument type="service">
-              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false"/>
+              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/home/crysthiano/git/RodoSul/src/Home/StoreBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>Home\StoreBundle\Entity</argument>
+                </call>
+              </service>
             </argument>
           </call>
           <call method="setProxyDir">
@@ -2641,6 +2656,10 @@
       <call method="addPath">
         <argument>/home/crysthiano/git/RodoSul/src/Home/HomeBundle/Resources/views</argument>
         <argument>HomeHome</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/crysthiano/git/RodoSul/src/Home/BlogBundle/Resources/views</argument>
+        <argument>HomeBlog</argument>
       </call>
       <call method="addPath">
         <argument>/home/crysthiano/git/RodoSul/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
