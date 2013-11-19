@@ -2,7 +2,23 @@ home_store:
     resource: "@HomeStoreBundle/Resources/config/routing.yml"
     prefix:   /
 
+blog: 
+  path: /blog/{page}
+  defaults: {_controller: HomeBlogBundle:Blog:index, page: 1}
+  requirements:
+        page: \d+
+
 blog_show:
    path: /blog/{slug}
    defaults: {_controller: HomeBlogBundle:Blog:estudo}
+
+article_show:
+   path: /articles/{culture}/{year}/{title}.{_format}
+   defaults: {_controller: HomeBlogBundle:Article:show, _format: html}
+   requirements:
+      culture: en|fr,
+      _format: html|rss,
+      year: \d+
+
+
 

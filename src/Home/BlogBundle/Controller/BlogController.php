@@ -6,6 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class BlogController extends Controller
 {
+	public function indexAction($page){
+		echo $page . ' symfony';die;
+	}
+	
 	public function listAction(){
 		$posts = $this->get('doctrine')
 					  ->getManager()

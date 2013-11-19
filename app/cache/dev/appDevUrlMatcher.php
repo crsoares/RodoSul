@@ -138,9 +138,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'home_store_homepage')), array (  '_controller' => 'Home\\StoreBundle\\Controller\\DefaultController::indexAction',));
         }
 
-        // blog_show
-        if (0 === strpos($pathinfo, '/blog') && preg_match('#^/blog/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_show')), array (  '_controller' => 'Home\\BlogBundle\\Controller\\BlogController::estudoAction',));
+        if (0 === strpos($pathinfo, '/blog')) {
+            // blog
+            if (preg_match('#^/blog(?:/(?P<page>\\d+))?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog')), array (  '_controller' => 'Home\\BlogBundle\\Controller\\BlogController::indexAction',  'page' => 1,));
+            }
+
+            // blog_show
+            if (preg_match('#^/blog/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_show')), array (  '_controller' => 'Home\\BlogBundle\\Controller\\BlogController::estudoAction',));
+            }
+
         }
 
         // _welcome
