@@ -151,6 +151,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // article_show
+        if (0 === strpos($pathinfo, '/articles') && preg_match('#^/articles/(?P<culture>en|fr)/(?P<year>\\d+)/(?P<title>[^/\\.]++)(?:\\.(?P<_format>html|rss))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_show')), array (  '_controller' => 'Home\\BlogBundle\\Controller\\ArticleController::showAction',  '_format' => 'html',));
+        }
+
         // _welcome
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

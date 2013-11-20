@@ -16,8 +16,8 @@ article_show:
    path: /articles/{culture}/{year}/{title}.{_format}
    defaults: {_controller: HomeBlogBundle:Article:show, _format: html}
    requirements:
-      culture: en|fr,
-      _format: html|rss,
+      culture: en|fr
+      _format: html|rss
       year: \d+
 
 
