@@ -10,8 +10,4 @@ class DefaultController extends Controller
     {
         return $this->render('HomeStoreBundle:Default:index.html.twig', array('name' => $name));
     }
-    
-    public function testeAction(){
-        
-    }
 }
