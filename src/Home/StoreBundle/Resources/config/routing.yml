@@ -13,6 +13,12 @@ home_store_show:
     requirements:
         id: \d+
         
+home_store_show_product:
+    pattern: /ver/{id}
+    defaults: { _controller: HomeStoreBundle:Default:showProduct }
+    requirements:
+        id: \d+
+        
 home_store_update:
     pattern: /alterar/{id}
     defaults: { _controller: HomeStoreBundle:Default:update }
@@ -33,3 +39,7 @@ home_store_query:
 home_store_object:
     pattern: /consulta
     defaults: { _controller: HomeStoreBundle:Default:object }
+    
+home_store_relation:
+    pattern: /inserir
+    defaults: { _controller: HomeStoreBundle:Default:createProduct }

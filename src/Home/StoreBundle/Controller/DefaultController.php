@@ -3,6 +3,8 @@
 namespace Home\StoreBundle\Controller;
 
 use Home\StoreBundle\Entity\Product;
+use Home\StoreBundle\Entity\Category;
+
 use Symfony\Component\HttpFoundation\Response;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -30,13 +32,31 @@ class DefaultController extends Controller
     
     public function showAction($id)
     {
-        $product = $this->getDoctrine()
+        /*$product = $this->getDoctrine()
                         ->getRepository('HomeStoreBundle:Product')
                         ->find($id);
         if(!$product){
             throw $this->createNotFoundException('Produto não encontrado: ' . $id);
         }
-        return new Response("Produto: " . $product->getDescription());
+        return new Response("Produto: " . $product->getDescription());*/
+        
+        $product = $this->getDoctrine()
+                        ->getRepository('HomeStoreBundle:Product')
+                        ->find($id);
+        $categoryName = $product->getCategory()->getName();
+        return new Response('Descricao produto: ' . $product->getDescription() . ' Categoria: ' . $categoryName);
+    }
+    
+    public function showProductAction($id)
+    {
+        $category = $this->getDoctrine()
+                         ->getRepository('HomeStoreBundle:Category')
+                         ->find($id);
+        $products = $category->getProducts();
+        
+        echo $products['name'];die;
+        
+        return new Response('Produtos: ' . print_r($products));
     }
     
     public function updateAction($id)
@@ -87,5 +107,25 @@ class DefaultController extends Controller
         $products = $query->getResult();
         
         return new Response('Result: ' . print_r($products));
+    }
+    
+    public function createProductAction()
+    {
+        $category = new Category();
+        $category->setName('Main Products');
+        
+        $product = new Product();
+        $product->setName('Foo');
+        $product->setPrice(19.99);
+        $product->setDescription('Novo Produto');
+        //relacionar este produto para a categoria
+        $product->setCategory($category);
+        
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($category);
+        $em->persist($product);
+        $em->flush();
+        
+        return new Response('Criou produto com id: ' . $product->getId() . 'E categoria com id: ' . $category->getId());
     }
 }

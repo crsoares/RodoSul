@@ -13,15 +13,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class HomeController extends Controller
 {
 	/**
-	 * @Route("/home/{name}", defaults={"_format"="xml"}, name="_home")
+	 * @Route("/home/{name}")
 	 * @Template()
 	 */
 	public function indexAction($name){
-		$response = new Response();
+		/*$response = new Response();
 		$response->setContent('<html><body><h1>Teste Resposta HTTP</h1></body></html>');
 		$response->setStatusCode(200);
 		$response->headers->set('Content-Type', 'text/html');
-		$response->send();die;
+		$response->send();die;*/
 		return array("name" => $name);
 		//return $this->redirect($this->generateUrl("_home_contact", array('name' => 'Lucas')));
 		//return $this->forward('HomeHomeBundle:Home:fancy', array('name' => 'Crysthiano', 'color' => 'green'));
