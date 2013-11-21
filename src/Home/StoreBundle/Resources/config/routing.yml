@@ -1,3 +1,35 @@
 home_store_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: HomeStoreBundle:Default:index }
+    
+    
+home_store_create:
+    pattern: /novo
+    defaults: { _controller: HomeStoreBundle:Default:create }
+    
+home_store_show:
+    pattern: /list/{id}
+    defaults: { _controller: HomeStoreBundle:Default:show }
+    requirements:
+        id: \d+
+        
+home_store_update:
+    pattern: /alterar/{id}
+    defaults: { _controller: HomeStoreBundle:Default:update }
+    requirements:
+        id: \d+
+        
+home_store_delete:
+    pattern: /remove/{id}
+    defaults: { _controller: HomeStoreBundle:Default:delete }
+    requirements:
+        id: \d+
+        
+home_store_query:
+    pattern: /mostra
+    defaults: { _controller: HomeStoreBundle:Default:query }
+    
+    
+home_store_object:
+    pattern: /consulta
+    defaults: { _controller: HomeStoreBundle:Default:object }

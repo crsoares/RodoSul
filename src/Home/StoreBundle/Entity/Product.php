@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="product")
+ * @ORM\Entity(repositoryClass="Home\StoreBundle\Entity\ProductRepository")
  */
 class Product
 {
@@ -31,6 +32,12 @@ class Product
 	 * @ORM\Column(type="text")
 	 */
 	protected $description;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    protected $category;
 
     /**
      * Get id
@@ -109,5 +116,28 @@ class Product
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \Home\StoreBundle\Entity\Category $category
+     * @return Product
+     */
+    public function setCategory(\Home\StoreBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+    
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Home\StoreBundle\Entity\Category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }
