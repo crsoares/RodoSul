@@ -40,10 +40,16 @@ class DefaultController extends Controller
         }
         return new Response("Produto: " . $product->getDescription());*/
         
-        $product = $this->getDoctrine()
+        /*$product = $this->getDoctrine()
                         ->getRepository('HomeStoreBundle:Product')
                         ->find($id);
+        $categoryName = $product->getCategory()->getName();*/
+        
+        $product = $this->getDoctrine()
+                        ->getRepository('HomeStoreBundle:Product')
+                        ->findOneByIdJoinedToCategory($id);
         $categoryName = $product->getCategory()->getName();
+        //echo $product['name'];die;
         return new Response('Descricao produto: ' . $product->getDescription() . ' Categoria: ' . $categoryName);
     }
     
@@ -112,10 +118,10 @@ class DefaultController extends Controller
     public function createProductAction()
     {
         $category = new Category();
-        $category->setName('Main Products');
+        $category->setName('outros');
         
         $product = new Product();
-        $product->setName('Foo');
+        $product->setName('Feijao');
         $product->setPrice(19.99);
         $product->setDescription('Novo Produto');
         //relacionar este produto para a categoria

@@ -13,4 +13,20 @@ class ProductRepository extends EntityRepository
                                 'SELECT p FROM HomeStoreBundle:Product p ORDER BY p.name ASC'
                             )->getResult();
     }
+    
+    public function findOneByIdJoinedToCategory($id)
+    {
+        $query = $this->getEntityManager()
+                      ->createQuery(
+                                'SELECT p, c FROM HomeStoreBundle:Product p '
+                              . 'JOIN p.category c '
+                              . 'WHERE p.id = :id'
+                              )->setParameter('id', $id);
+        
+        try{
+            return $query->getSingleResult();
+        }catch(\Doctrine\ORM\NoResultException $e){
+            return null;
+        }
+    }
 }
