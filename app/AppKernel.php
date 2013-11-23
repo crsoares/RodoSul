@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
             $bundles[] = new Home\HomeBundle\HomeHomeBundle();
             $bundles[] = new Home\BlogBundle\HomeBlogBundle();
+            $bundles[] = new Home\UserBundle\HomeUserBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
