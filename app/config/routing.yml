@@ -1,6 +1,10 @@
 home_store:
     resource: "@HomeStoreBundle/Resources/config/routing.yml"
     prefix:   /
+    
+home_user:
+    resource: "@HomeUserBundle/Resources/config/routing.yml"
+    prefix:   /
 
 blog: 
   path: /blog/{page}

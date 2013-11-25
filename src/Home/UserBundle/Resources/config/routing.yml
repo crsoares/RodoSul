@@ -1,2 +1,7 @@
-## YAML Template.
----
+account_register:
+    path: /register
+    defaults: { _controller: HomeUserBundle:Account:register }
+    
+account_create:
+    path: /register/create
+    defaults: { _controller: HomeUserBundle:Account:create }

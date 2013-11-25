@@ -3,13 +3,15 @@
 namespace Home\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
+ * @ORM\Entity
  * @ORM\Table(name="acme_users")
- * @ORM\Entity(repositoryClass="Home\UserBundle\Entity\UserRepository")
+ * @UniqueEntity(fields="email", message="Email already taken")
  */
-class User implements UserInterface, \Serializable
+class User 
 {
     /**
      * @ORM\Column(type="integer")
@@ -19,35 +21,18 @@ class User implements UserInterface, \Serializable
     private $id;
     
     /**
-     * @ORM\Column(type="string", length=25, unique=true)
-     */
-    private $username;
-    
-    /**
-     * @ORM\Column(type="string", length=32)
-     */
-    private $salt;
-    
-    /**
-     * @ORM\Column(type="string", length=64)
-     */
-    private $password;
-    
-    /**
-     * @ORM\Column(type="string", length=60, unique=true)
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
     
     /**
-     * @ORM\Column(type="is_action", type="boolean")
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
      */
-    private $isAction;
-    
-    public function __construct()
-    {
-        $this->isAction = true;
-        $this->salt = md5(uniqid(null, true));
-    }
+    private $plainPassword;
 
     /**
      * Get id
@@ -58,76 +43,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->id;
     }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     * @return User
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
     
-        return $this;
-    }
-
-    /**
-     * Get username
-     *
-     * @return string 
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Set salt
-     *
-     * @param string $salt
-     * @return User
-     */
-    public function setSalt($salt)
-    {
-        $this->salt = $salt;
-    
-        return $this;
-    }
-
-    /**
-     * Get salt
-     *
-     * @return string 
-     */
-    public function getSalt()
-    {
-        return $this->salt;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     * @return User
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-    
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string 
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
     /**
      * Set email
      *
@@ -150,27 +66,22 @@ class User implements UserInterface, \Serializable
     {
         return $this->email;
     }
-
-    /**
-     * Set isAction
-     *
-     * @param boolean $isAction
-     * @return User
-     */
-    public function setIsAction($isAction)
-    {
-        $this->isAction = $isAction;
     
-        return $this;
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;   
     }
 
     /**
-     * Get isAction
+     * Set plainPassword
      *
-     * @return boolean 
+     * @param string $plainPassword
+     * @return User
      */
-    public function getIsAction()
+    public function setPlainPassword($plainPassword)
     {
-        return $this->isAction;
+        $this->plainPassword = $plainPassword;
+    
+        return $this;
     }
 }
