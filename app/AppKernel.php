@@ -21,6 +21,7 @@ class AppKernel extends Kernel
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
+            $bundles[] = new Acme\TaskBundle\AcmeTaskBundle();
             $bundles[] = new Home\HomeBundle\HomeHomeBundle();
             $bundles[] = new Home\BlogBundle\HomeBlogBundle();
             $bundles[] = new Home\UserBundle\HomeUserBundle();

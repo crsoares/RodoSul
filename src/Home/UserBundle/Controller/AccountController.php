@@ -28,14 +28,18 @@ class AccountController extends Controller
     
     public function createAction(Request $request)
     {
+        print_r($this->getRequest());die;
         $data = new User();
         //$request = $this->get('request');
-        $data->setEmail($request->get('email'));
-        $data->setPlainPassword($request->get('password'));
-        $form = $this->createFormBuilder($data)
+        //$data->setEmail($request->get('email'));
+        //$data->setPlainPassword($request->get('password'));
+        /*$form = $this->createFormBuilder($data)
                      ->add('email', 'text')
                      ->add('plainPassword', 'password')
-                     ->getForm();
+                     ->getForm();*/
+        
+        $form = $this->createFormBuilder()->getForm();
+        
        /* $em = $this->getDoctrine()->getEntityManager();
         $form = $this->createForm(new RegistrationType(), new Registration());
         $form->handleRequest($request);*/
@@ -47,11 +51,11 @@ class AccountController extends Controller
         //if($request->getMethod() == 'POST'){
            //print_r($form->getData());die;
            //echo $form->getData();die;
-            //$form->submit($request);
+            $form->submit($request);
            //$form->bind($request);
             //echo 'akii';die;
            // $form->bindRequest($request);
-            $form->handleRequest($request);
+            //$form->handleRequest($request);
             if($form->isValid()){
                 echo 'akii teste';
             }

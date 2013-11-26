@@ -1,0 +1,11 @@
+acme_task_new:
+    pattern: /new
+    defaults: { _controller: AcmeTaskBundle:Default:new }
+    
+task_success:
+    pattern: /success
+    defaults: { _controller: AcmeTaskBundle:Default:success }
+    
+task_delete:
+    pattern: /delete
+    defaults: { _controller: AcmeTaskBundle:Default:delete }
