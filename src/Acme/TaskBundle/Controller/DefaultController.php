@@ -3,8 +3,11 @@
 namespace Acme\TaskBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Acme\TaskBundle\Entity\Task;
 use Symfony\Component\HttpFoundation\Request;
+
+use Acme\TaskBundle\Form\Type\TaskType;
+use Acme\TaskBundle\Entity\Task;
+
 
 class DefaultController extends Controller
 {
@@ -14,12 +17,7 @@ class DefaultController extends Controller
         $task->setTask('Escrever um post no blog');
         $task->setDueDate(new \DateTime('tomorrow'));
         
-        $form = $this->createFormBuilder($task)
-                     ->add('task')
-                     ->add('dueDate', null, array('widget' => 'single_text', 'label' => 'Data'))
-                     ->add('save', 'submit')
-                     ->add('saveAndAdd', 'submit')
-                     ->getForm();
+        $form = $this->createForm(new TaskType(), $task);
         
         $form->handleRequest($request);
         
