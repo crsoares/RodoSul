@@ -15,8 +15,8 @@ class DefaultController extends Controller
         $task->setDueDate(new \DateTime('tomorrow'));
         
         $form = $this->createFormBuilder($task)
-                     ->add('task', 'text')
-                     ->add('dueDate', 'date')
+                     ->add('task')
+                     ->add('dueDate', null, array('widget' => 'single_text', 'label' => 'Data'))
                      ->add('save', 'submit')
                      ->add('saveAndAdd', 'submit')
                      ->getForm();
