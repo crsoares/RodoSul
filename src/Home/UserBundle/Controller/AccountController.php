@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Home\UserBundle\Form\Type\RegistrationType;
 use Home\UserBundle\Form\Model\Registration;
+//use Home\UserBundle\Entity\Role;
 
 class AccountController extends Controller
 {
@@ -29,13 +30,15 @@ class AccountController extends Controller
         
         $em = $this->getDoctrine()->getManager();
         
+        //$role = new Role();
+        
         $form = $this->createForm(new RegistrationType(), new Registration());
         
         $form->handleRequest($request);
         
         if($form->isValid()) {
             $registration = $form->getData();
-            //print_r($registration->getUser());die;
+            //print_r($registration->getRoles());die;
             $encoder = $factory->getEncoder($registration->getUser());
             $password = $encoder->encodePassword('ryanpass', $registration->getUser()->getSalt());
             $registration->getUser()->setPassword($password);

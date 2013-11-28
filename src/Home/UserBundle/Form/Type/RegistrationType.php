@@ -10,6 +10,13 @@ class RegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('user', new UserType());
+        $builder->add('Papeis', new RoleType(), array(
+            'property_path' => 'role'
+        ));
+        /*$builder->add('Papeis', 'choice', array(
+            //'property_path' => 'roles',
+            'choices' => new RoleType()
+        ));*/
         $builder->add('Registrar', 'submit');
     }
     

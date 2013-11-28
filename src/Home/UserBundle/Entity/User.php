@@ -3,16 +3,18 @@
 namespace Home\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
- * @ORM\Entity
+ * @ORM\Table(name="users")
+ * @ORM\Entity(repositoryClass="Home\UserBundle\Entity\UserRepository")
  * @UniqueEntity(fields="email", message="E-mail já tomadas")
  */
-class User implements UserInterface, \Serializable
+class User implements AdvancedUserInterface, \Serializable
 {
     /**
      * @ORM\Id
@@ -50,8 +52,14 @@ class User implements UserInterface, \Serializable
      */
     private $isActive;
     
+    /**
+     * @ORM\ManyToMany(targetEntity="Role", inversedBy="users") 
+     */
+    private $roles;
+    
     public function __construct()
     {
+        $this->roles = new ArrayCollection();
         $this->isActive = true;
         $this->salt = md5(uniqid(null, true));
     }
@@ -130,7 +138,15 @@ class User implements UserInterface, \Serializable
      */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return $this->roles->toArray();
+    }
+    
+    /**
+     * @inheritDoc
+     */
+    public function setRoles($roles)
+    {
+        $this->roles[] = $roles;
     }
     
     /**
@@ -179,5 +195,62 @@ class User implements UserInterface, \Serializable
     public function getIsActive()
     {
         return $this->isActive;
+    }
+    
+    /*
+     * Metodo que verifica se a conta do 
+     * usuario expirou
+     */
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+    
+    /*
+     * Checa se o usuario esta bloqueado
+     */
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+    
+    /*
+     * Verifica se a credenciais do usuario(senha)
+     * expirou
+     */
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+    
+    /*
+     * Verifica se o usuario esta habilitado
+     */
+    public function isEnabled()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * Add roles
+     *
+     * @param \Home\UserBundle\Entity\Role $roles
+     * @return User
+     */
+    public function addRole(\Home\UserBundle\Entity\Role $roles)
+    {
+        $this->roles[] = $roles;
+    
+        return $this;
+    }
+
+    /**
+     * Remove roles
+     *
+     * @param \Home\UserBundle\Entity\Role $roles
+     */
+    public function removeRole(\Home\UserBundle\Entity\Role $roles)
+    {
+        $this->roles->removeElement($roles);
     }
 }

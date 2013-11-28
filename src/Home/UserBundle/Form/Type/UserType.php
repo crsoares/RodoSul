@@ -17,6 +17,10 @@ class UserType extends AbstractType
             'second_name' => 'confirm',
             'type' => 'password'
         ));
+        /*$builder->add('Papeis', 'choice', array(
+            'property_path' => 'roles',
+            'choices' => array('ROLE_ADMIN' => 'ADMIN', 'ROLE_USER' => 'USER')
+        ));*/
         $builder->add('Ativo', 'checkbox', array(
             'property_path' => 'isActive'
         ));

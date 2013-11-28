@@ -18,7 +18,7 @@ security:
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
         administrators:
-            entity: { class: HomeUserBundle:User, property: username }
+            entity: { class: HomeUserBundle:User }
 
     firewalls:
         admin_area:
