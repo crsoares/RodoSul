@@ -13,12 +13,6 @@ class Registration
      */
     protected $user;
     
-    /**
-     * @Assert\NotBlank()
-     * @Assert\True() 
-     */
-    protected $termsAccepted;
-    
     public function setUser(User $user)
     {
         $this->user = $user;
@@ -29,7 +23,7 @@ class Registration
         return $this->user;
     }
     
-    public function getTermsAccepted()
+    /*public function getTermsAccepted()
     {
         return $this->termsAccepted;
     }
@@ -37,5 +31,5 @@ class Registration
     public function setTermsAccepted($termsAccepted)
     {
         $this->termsAccepted = (Boolean) $termsAccepted;
-    }
+    }*/
 }
