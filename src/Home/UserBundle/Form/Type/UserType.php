@@ -8,7 +8,8 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class UserType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options){
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
         $builder->add('email', 'email');
         $builder->add('plainPassword', 'repeated', array(
             'first_name' => 'password',
@@ -26,6 +27,7 @@ class UserType extends AbstractType
     
     public function getName()
     {
-        return 'user';
+        return "user";
     }
 }
+

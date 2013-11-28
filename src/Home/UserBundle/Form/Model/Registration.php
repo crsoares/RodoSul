@@ -3,24 +3,23 @@
 namespace Home\UserBundle\Form\Model;
 
 use Symfony\Component\Validator\Constraints as Assert;
-
 use Home\UserBundle\Entity\User;
 
 class Registration
 {
     /**
      * @Assert\Type(type="Home\UserBundle\Entity\User")
-     * @Assert\Valid() 
+     * @Assert\Valid()
      */
     protected $user;
     
     /**
      * @Assert\NotBlank()
-     * @Assert\True()
+     * @Assert\True() 
      */
     protected $termsAccepted;
     
-    public function User(User $user)
+    public function setUser(User $user)
     {
         $this->user = $user;
     }
@@ -40,4 +39,3 @@ class Registration
         $this->termsAccepted = (Boolean) $termsAccepted;
     }
 }
-

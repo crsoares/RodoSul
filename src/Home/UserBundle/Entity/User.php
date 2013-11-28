@@ -8,80 +8,54 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="acme_users")
- * @UniqueEntity(fields="email", message="Email already taken")
+ * @UniqueEntity(fields="email", message="E-mail já tomadas")
  */
 class User 
 {
     /**
-     * @ORM\Column(type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO") 
      */
-    private $id;
+    protected $id;
     
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
-     * @Assert\Email()
+     * @Assert\Email() 
      */
-    private $email;
+    protected $email;
     
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
-     * @Assert\Length(max=4096)
+     * @Assert\Length(max = 4096) 
      */
-    private $plainPassword;
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
+    protected $plainPassword;
+    
     public function getId()
     {
         return $this->id;
     }
     
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return User
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
     public function getEmail()
     {
         return $this->email;
     }
     
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+    
     public function getPlainPassword()
     {
-        return $this->plainPassword;   
+        return $this->plainPassword;
     }
-
-    /**
-     * Set plainPassword
-     *
-     * @param string $plainPassword
-     * @return User
-     */
+    
     public function setPlainPassword($plainPassword)
     {
         $this->plainPassword = $plainPassword;
-    
-        return $this;
     }
 }
+
