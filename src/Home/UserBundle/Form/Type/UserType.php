@@ -17,6 +17,7 @@ class UserType extends AbstractType
             'second_name' => 'confirm',
             'type' => 'password'
         ));
+        //$builder->add('roles', new RoleType());
         /*$builder->add('Papeis', 'choice', array(
             'property_path' => 'roles',
             'choices' => array('ROLE_ADMIN' => 'ADMIN', 'ROLE_USER' => 'USER')

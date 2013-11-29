@@ -10,13 +10,13 @@ class RoleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('Papeis', 'choice', array(
-            'property_path' => 'role',
+        $builder->add('role', 'choice', array(
+            'label' => 'Papeis',
             'choices' => array('ROLE_ADMIN' => 'ADMIN', 'ROLE_USER' => 'USER')
         ));
     }
     
-    public function setDefaultOption(OptionsResolverInterface $resolver)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'Home\UserBundle\Entity\Role'

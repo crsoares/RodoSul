@@ -38,11 +38,12 @@ class AccountController extends Controller
         
         if($form->isValid()) {
             $registration = $form->getData();
-            //print_r($registration->getRoles());die;
+            print_r($registration->getRole());die;
             $encoder = $factory->getEncoder($registration->getUser());
             $password = $encoder->encodePassword('ryanpass', $registration->getUser()->getSalt());
             $registration->getUser()->setPassword($password);
-            
+            $registration->getUser()
+                         ->setRoles($registration->getRole());
             $em->persist($registration->getUser());
             $em->flush();
             return $this->redirect($this->generateUrl('account_success'));

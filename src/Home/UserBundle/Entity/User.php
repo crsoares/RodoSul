@@ -53,7 +53,7 @@ class User implements AdvancedUserInterface, \Serializable
     private $isActive;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Role", inversedBy="users") 
+     * @ORM\ManyToMany(targetEntity="Role", inversedBy="users", cascade={"persist"}) 
      */
     private $roles;
     
