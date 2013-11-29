@@ -17,7 +17,10 @@ class UserType extends AbstractType
             'second_name' => 'confirm',
             'type' => 'password'
         ));
-        //$builder->add('roles', new RoleType());
+        $builder->add('roles', new RoleType(), array('property_path' => 'roles'));
+        /*$builder->add('roles', 'choice', array(
+            'choices' => array('ROLE_ADMIN' => 'ADMIN', 'ROLE_USER' => 'USER')
+        ));*/
         /*$builder->add('Papeis', 'choice', array(
             'property_path' => 'roles',
             'choices' => array('ROLE_ADMIN' => 'ADMIN', 'ROLE_USER' => 'USER')
@@ -25,12 +28,15 @@ class UserType extends AbstractType
         $builder->add('Ativo', 'checkbox', array(
             'property_path' => 'isActive'
         ));
+        
+        $builder->add('Registrar', 'submit');
     }
     
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Home\UserBundle\Entity\User'
+            'data_class' => 'Home\UserBundle\Entity\User',
+            'cascade_validation' => true
         ));
     }
     

@@ -72,6 +72,13 @@ class Role implements RoleInterface
     {
         $this->role = $role;
     }
+    
+    public function toArray()
+    {
+        return array(
+            'role' => $this
+        );
+    }
 
     /**
      * Add users

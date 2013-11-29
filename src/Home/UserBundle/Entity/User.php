@@ -54,6 +54,7 @@ class User implements AdvancedUserInterface, \Serializable
     
     /**
      * @ORM\ManyToMany(targetEntity="Role", inversedBy="users", cascade={"persist"}) 
+     * @Assert\Type(type="Home\UserBundle\Entity\Role")
      */
     private $roles;
     
@@ -146,7 +147,7 @@ class User implements AdvancedUserInterface, \Serializable
      */
     public function setRoles($roles)
     {
-        $this->roles[] = $roles;
+        $this->roles = $roles;
     }
     
     /**
