@@ -14,6 +14,15 @@ class RoleType extends AbstractType
             'label' => 'Papeis',
             'choices' => array('ROLE_ADMIN' => 'ADMIN', 'ROLE_USER' => 'USER')
         ));
+        /*$builder->add('role', 'collection', array(
+            'type' => 'choice',
+            'options' => array(
+                'choices' => array(
+                    'ROLE_ADMIN' => 'ADMIN',
+                    'ROLE_USER' => 'USER'
+                )
+            )
+        ));*/
     }
     
     public function setDefaultOptions(OptionsResolverInterface $resolver)
@@ -25,7 +34,7 @@ class RoleType extends AbstractType
     
     public function getName()
     {
-        return "role";
+        return "roles";
     }
 }
 

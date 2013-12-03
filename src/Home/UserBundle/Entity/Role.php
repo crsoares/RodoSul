@@ -8,8 +8,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\Role\RoleInterface;
 
 /**
- * @ORM\Table(name="roles")
  * @ORM\Entity()
+ * @ORM\Table(name="roles")
  */
 class Role implements RoleInterface
 {

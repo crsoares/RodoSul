@@ -57,13 +57,13 @@ class AccountController extends Controller
             $em->flush();*/
             $user = $form->getData();
             //var_dump($user);die;
-            //print_r($user->getRoles());die;
-            $role = $user->getRoles();
+            //print_r($user->getRoles()->toArray());die;
+            $role = $user->getRoles()->toArray();
             //echo $teste['role'];die;
             //echo $user->getEmail();die;
             //echo $role->getRole();die;
-            $role->setName(str_replace("ROLE_", "", $role->getRole()));
-            $user->setRoles($role);
+            $role[0]->setName(str_replace("ROLE_", "", $role[0]->getRole()));
+            //$user->setRoles($role);
             
             //print_r($role);die;
             //$role->setRole($role['role']);
@@ -73,6 +73,7 @@ class AccountController extends Controller
             
             /*$registration->getUser()
                          ->setRoles($registration->getRole());*/
+            //print_r($user);die;
             //echo $user;die;
             //exit('akiii');
             $em->persist($user);

@@ -17,7 +17,17 @@ class UserType extends AbstractType
             'second_name' => 'confirm',
             'type' => 'password'
         ));
-        $builder->add('roles', new RoleType(), array('property_path' => 'roles'));
+        $builder->add('roles', new RoleType());
+        //$builder->add('roles', 'collection', array('type' => new RoleType()));
+        /*$builder->add('roles', 'collection', array(
+            'type' => 'choice',
+            'options' => array(
+                'choices' => array(
+                    'ROLE_ADMIN' => 'ADMIN',
+                    'ROLE_USER' => 'USER'
+                )
+            )
+        ));*/
         /*$builder->add('roles', 'choice', array(
             'choices' => array('ROLE_ADMIN' => 'ADMIN', 'ROLE_USER' => 'USER')
         ));*/
@@ -36,7 +46,7 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'Home\UserBundle\Entity\User',
-            'cascade_validation' => true
+            //'cascade_validation' => true
         ));
     }
     

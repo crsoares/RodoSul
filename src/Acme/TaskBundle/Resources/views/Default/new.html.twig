@@ -1,9 +1,7 @@
-{{ form.vars.value.task }}
 {{ form_start(form, {'action': path('task_success'), 'method': 'get', 'attr': {'novalidate': 'novalidate'}}) }}
     {{ form_errors(form) }}
     {{ form_widget(form.task, {'attr': {'style': 'testeClasse', 'class': 'testeClasse'}}) }}
     {{ form_row(form.task) }}
     {{ form_row(form.dueDate) }}
     {{ form_row(form.category.name) }}
-    {{ form.task.vars.id }}
 {{ form_end(form) }}
