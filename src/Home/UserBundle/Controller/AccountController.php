@@ -64,6 +64,7 @@ class AccountController extends Controller
             //echo $role->getRole();die;
             $role->setName(str_replace("ROLE_", "", $role->getRole()));
             $user->setRoles($role);
+            
             //print_r($role);die;
             //$role->setRole($role['role']);
             $encoder = $factory->getEncoder($user);

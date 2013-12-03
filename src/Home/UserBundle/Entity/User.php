@@ -53,7 +53,7 @@ class User implements AdvancedUserInterface, \Serializable
     private $isActive;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Role", inversedBy="users", cascade={"persist"}) 
+     * @ORM\ManyToMany(targetEntity="Role", inversedBy="user", cascade={"persist"}) 
      * @Assert\Type(type="Home\UserBundle\Entity\Role")
      */
     private $roles;
@@ -139,7 +139,8 @@ class User implements AdvancedUserInterface, \Serializable
      */
     public function getRoles()
     {
-        return $this->roles->toArray();
+        //return $this->roles->toArray();
+        return $this->roles;
     }
     
     /**
@@ -232,26 +233,5 @@ class User implements AdvancedUserInterface, \Serializable
         return $this->isActive;
     }
 
-    /**
-     * Add roles
-     *
-     * @param \Home\UserBundle\Entity\Role $roles
-     * @return User
-     */
-    public function addRole(\Home\UserBundle\Entity\Role $roles)
-    {
-        $this->roles[] = $roles;
-    
-        return $this;
-    }
-
-    /**
-     * Remove roles
-     *
-     * @param \Home\UserBundle\Entity\Role $roles
-     */
-    public function removeRole(\Home\UserBundle\Entity\Role $roles)
-    {
-        $this->roles->removeElement($roles);
-    }
+   
 }

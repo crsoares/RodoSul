@@ -21,7 +21,7 @@ class Role implements RoleInterface
     private $id;
     
     /**
-     * @ORM\Column(name="name", type="string", length=30)
+     * @ORM\Column(type="string", length=30)
      */
     private $name;
     
@@ -58,6 +58,11 @@ class Role implements RoleInterface
     public function getUsers()
     {
         return $this->users;
+    }
+    
+    public function setUsers($users)
+    {
+        $this->users = $users;
     }
     
     /**
