@@ -1,4 +1,3 @@
-_home:
-    resource: "@HomeHomeBundle/Controller/HomeController.php" 
-    type:     annotation
-    prefix:   /home
+home:
+    path: /home
+    defaults: { _controller: HomeHomeBundle:Home:index }

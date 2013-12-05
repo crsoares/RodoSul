@@ -10,31 +10,15 @@ class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('username', 'text');
+        $builder->add('username', 'text', array('label' => 'Nome de Usuario'));
         $builder->add('email', 'email');
         $builder->add('password', 'repeated', array(
-            'first_name' => 'password',
-            'second_name' => 'confirm',
+            'first_name' => 'Senha',
+            'second_name' => 'Confirmar_Senha',
             'type' => 'password'
         ));
-        $builder->add('roles', new RoleType());
-        //$builder->add('roles', 'collection', array('type' => new RoleType()));
-        /*$builder->add('roles', 'collection', array(
-            'type' => 'choice',
-            'options' => array(
-                'choices' => array(
-                    'ROLE_ADMIN' => 'ADMIN',
-                    'ROLE_USER' => 'USER'
-                )
-            )
-        ));*/
-        /*$builder->add('roles', 'choice', array(
-            'choices' => array('ROLE_ADMIN' => 'ADMIN', 'ROLE_USER' => 'USER')
-        ));*/
-        /*$builder->add('Papeis', 'choice', array(
-            'property_path' => 'roles',
-            'choices' => array('ROLE_ADMIN' => 'ADMIN', 'ROLE_USER' => 'USER')
-        ));*/
+        $builder->add('roles', new RoleType(), array('label' => ' '));
+        
         $builder->add('Ativo', 'checkbox', array(
             'property_path' => 'isActive'
         ));
