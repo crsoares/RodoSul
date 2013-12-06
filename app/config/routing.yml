@@ -1,3 +1,7 @@
+hello_hello:
+    resource: "@HelloHelloBundle/Resources/config/routing.yml"
+    prefix:   /
+
 acme_task_bundle:
     resource: "@AcmeTaskBundle/Resources/config/routing.yml"
     prefix: /
